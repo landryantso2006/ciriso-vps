@@ -1,4 +1,3 @@
-
 # Utiliser Ubuntu comme base
 FROM ubuntu:20.04
 
@@ -28,8 +27,8 @@ WORKDIR /home/ubuntu
 
 # Copier ton extension Chrome
 COPY manifest.json /home/ubuntu/extension/
-COPY background.js /home/ubuntu/extension/
-COPY content_script_ca.js /home/ubuntu/extension/
+COPY js/background.js /home/ubuntu/extension/
+COPY js/content_script_ca.js /home/ubuntu/extension/
 
 # Configurer noVNC
 EXPOSE 8080
