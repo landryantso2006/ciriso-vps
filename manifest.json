@@ -1,0 +1,101 @@
+{
+    "author": "Tantelimiel SV",
+    "background": {
+        "service_worker": "js/background.js"
+    },
+    "action": {
+        "default_icon": "Icon/icon-128.png",
+        "default_title": "CIRISO Extension v3.4"
+    },
+    "content_scripts": [
+        {
+            "all_frames": true,
+            "js": [
+                "js/content_script_ca.js"
+            ],
+            "matches": [
+                "https://textspins.com/*",
+                "https://contentmods.com/*",
+                "https://mediumops.com/*"
+            ],
+            "run_at": "document_start"
+        },
+        {
+            "all_frames": true,
+            "css": [
+                "css/font.css"
+            ],
+            "js": [
+                "js/content_script_timer.js"
+            ],
+            "matches": [
+                "https://textspins.com/*/gesprek/*",
+                "https://contentmods.com/*/gesprek/*",
+                "https://mediumops.com/*/gesprek/*",
+                "https://textspins.com/*/gestopt-gesprek/*",
+                "https://contentmods.com/*/gestopt-gesprek/*",
+                "https://mediumops.com/*/gestopt-gesprek/*",
+                "https://textspins.com/*/operators/chat_message/*",
+                "https://contentmods.com/*/operators/chat_message/*",
+                "https://mediumops.com/*/operators/chat_message/*",
+                "https://textspins.com/*operators/conversations/medium_single/*",
+                "https://contentmods.com/*operators/conversations/medium_single/*",
+                "https://mediumops.com/*operators/conversations/medium_single/*",
+                "https://textspins.com/*/medium-gesprek/*",
+                "https://contentmods.com/*/medium-gesprek/*",
+                "https://mediumops.com/*/medium-gesprek/*"
+            ],
+            "run_at": "document_end"
+        },
+        {
+            "all_frames": true,
+            "css": [
+                "css/css_emoji.css"
+            ],
+            "js": [
+                "js/content_script_z+.js",
+                "js/content_script_emoji.js"
+            ],
+            "matches": [
+                "https://textspins.com/*",
+                "https://contentmods.com/*",
+                "https://mediumops.com/*"
+            ],
+            "run_at": "document_end"
+        }
+    ],
+    "icons": {
+        "128": "Icon/icon-128.png"
+    },
+    "offline_enabled": false,
+    "incognito": "split",
+    "manifest_version": 3,
+    "name": "CIRISO Extension",
+    "permissions": [
+        "tabs",
+        "cookies"
+    ],
+    "host_permissions": [
+        "*://textspins.com/*",
+        "*://contentmods.com/*",
+        "*://mediumops.com/*"
+    ],
+    "version": "3.4",
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "css/*",
+                "font/*",
+                "Icon/*",
+                "js/*",
+                "sound/*"
+            ],
+            "matches": [
+                "https://textspins.com/*",
+                "https://contentmods.com/*",
+                "https://mediumops.com/*"
+            ],
+            "use_dynamic_url": true
+        }
+    ]
+}
